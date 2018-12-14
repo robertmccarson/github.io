@@ -8,11 +8,21 @@
   <body>
     <!-- Contact Form - sent to a Google Sheet -->
     <form id='foo' action="https://robertmccarson.github.io/github.io/response.html" form="POST">
- 
-      <p>
-        <label>Name</label>
-        <input id='name' name='name' type='text'>
-      </p><p>
+ <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 0px;
+}
+<table style="width:100%">
+      </style>
+  <tr>
+   <td>
+  <input type='text' name='Word1' class="form-control" id="Word1">
+  </td>
+     <p>
         <label>Email Address</label>
         <input id='email' name='email' type='email'>
       </p><p>
