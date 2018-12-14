@@ -7,7 +7,8 @@
   </head>
   <body>
     <!-- Contact Form - sent to a Google Sheet -->
-    <form id='foo'>
+    <form id='foo' target="_self" onsubmit="" action="https://robertmccarson.github.io/github.io/response.html" form="POST">
+ 
       <p>
         <label>Name</label>
         <input id='name' name='name' type='text'>
@@ -22,7 +23,7 @@
         <textarea id='message' name='message' rows='5'></textarea>
       </p>
         <div id='success'></div>
-        <button type='submit'>Send</button>
+        <button type='submit'>Submit</button>
     </form>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
