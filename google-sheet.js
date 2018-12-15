@@ -37,14 +37,7 @@ $("#foo").submit(function(event){
         console.log(textStatus);
         console.log(jqXHR);
         
-        // Use Ajax to submit form data
-       var redirectUrl = 'success-page.html';
-        // show the loading 
-        $('#postForm').prepend($('<span></span>').addClass('glyphicon glyphicon-refresh glyphicon-refresh-animate'));
-        var jqxhr = $.post(url, $form.serialize(), function(data) {
-            console.log("Success! Data: " + data.statusText);
-            $(location).attr('href',redirectUrl);
-           });
+                });
 
     // Callback handler that will be called on failure
     request.fail(function (jqXHR, textStatus, errorThrown){
