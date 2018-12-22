@@ -29,14 +29,15 @@ $("#foo").submit(function(event){
         data: serializedData
     });
 
-    // Callback handler that will be called on success
-    request.done(function (response, textStatus, jqXHR){
-        // Log a message to the console
-        console.log("Hooray, it worked!");
-        console.log(response);
-        console.log(textStatus);
-        console.log(jqXHR);
-      });
+    var url = 'https://script.google.com/macros/s/AKfycbw1CW2KcMOnXFY3Z27fCyxTD_HsJt39SqbUjdWtaedhoyQe_oI/exec';
+        var redirectUrl = 'response.html';
+        // show the loading
+        $('#postForm').prepend($('<span></span>').addClass('glyphicon glyphicon-refresh glyphicon-refresh-animate'));
+        var jqxhr = $.post(url, $form.serialize(), function(data) {
+added this >>> jqxhr.crossDomain = true;
+console.log("Success! Data: " + data.statusText);
+$(location).attr('href',redirectUrl);
+        })
 
     // Callback handler that will be called on failure
     request.fail(function (jqXHR, textStatus, errorThrown){
@@ -51,7 +52,7 @@ $("#foo").submit(function(event){
     // if the request failed or succeeded
     request.always(function () {
         // Reenable the inputs
-        $inputs.prop("disabled", false);
+        $inputs.prop("disabled", true);
     });
 
     // Prevent default posting of form
