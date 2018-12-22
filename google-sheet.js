@@ -43,7 +43,7 @@ $(function () {
             type: "POST",
                      success: function (msg) {
                 alert("success");
-                window.location.replace("/success_page.html");
+                window.location.replace("/success-page.html");
             },
         });
         }else{
