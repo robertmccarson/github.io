@@ -29,29 +29,26 @@ $("#foo").submit(function(event){
         data: serializedData
     });
 
-   // Callback handler that will be called on success
-    request.done(function (response, textStatus, jqXHR){
-        // Log a message to the console
-        console.log("Hooray, it worked!");
-        console.log(response);
-        console.log(textStatus);
-        console.log(jqXHR);
-    });
-
-    // Callback handler that will be called on failure
-    request.fail(function (jqXHR, textStatus, errorThrown){
-        // Log the error to the console
-        console.error(
-            "The following error occurred: "+
-            textStatus, errorThrown
-        );
-    });
-
-    // Callback handler that will be called regardless
-    // if the request failed or succeeded
-    request.always(function () {
-        // Reenable the inputs
-        $inputs.prop("disabled", false);
+   function isValid(){
+  var usrname = $("#usrname").val();
+    if(usrname == ""){
+      return false;
+    }
+  return true;
+}
+$(function () {
+    $('#submityes').submit(function () {
+    if(isValid() == true){
+        $.ajax({
+            type: "POST",
+                     success: function (msg) {
+                alert("success");
+                window.location.replace("/success_page.html");
+            },
+        });
+        }else{
+        alert("error");
+        }
     });
 
     // Prevent default posting of form
